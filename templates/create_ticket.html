@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Support Ticket</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>IT Help Desk</h1>
+        <p>Technical Support Management System</p>
+    </header>
+
+    <main>
+
+        <section class="ticket-form">
+
+            <h2>Create New Ticket</h2>
+
+            <p>
+                Complete this form to report a technical problem.
+            </p>
+
+            <form action="/create-ticket" method="POST">
+
+                <label for="staff_name">Staff Name</label>
+                <input
+                    type="text"
+                    id="staff_name"
+                    name="staff_name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label for="department">Department</label>
+                <input
+                    type="text"
+                    id="department"
+                    name="department"
+                    placeholder="Enter your department"
+                    required
+                >
+
+                <label for="title">Issue Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="e.g. Printer not responding"
+                    required
+                >
+
+                <label for="category">Category</label>
+
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Software">Software</option>
+                    <option value="Network">Network</option>
+                    <option value="Printer">Printer</option>
+                    <option value="Email">Email</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="priority">Priority</label>
+
+                <select id="priority" name="priority" required>
+                    <option value="">Select priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
+
+                <label for="technician">Assign Technician:</label>
+
+                <select name="technician" id="technician">
+                    <option value="">Unassigned</option>
+                    <option value="IT Support">IT Support</option>
+                    <option value="Network Technician">Network Technician</option>
+                    <option value="Hardware Technician">Hardware Technician</option>
+                </select>
+
+                <label for="description">Problem Description</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="5"
+                    placeholder="Explain the problem..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Submit Ticket
+                </button>
+
+            </form>
+
+            <p>
+                <a href="/">Back to Dashboard</a>
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

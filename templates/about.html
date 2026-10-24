@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About - IT Help Desk</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">IT Help Desk</div>
+
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Dashboard</a>
+            <a href="{{ url_for('create_ticket') }}">Create Ticket</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </div>
+    </nav>
+
+    <main class="ticket-details">
+        <h1>About This System</h1>
+
+        <div class="details-card">
+            <h2>IT Help Desk Management System</h2>
+
+            <p>
+                This application helps an IT department record,
+                organize, and manage technical support requests.
+            </p>
+
+            <h3>Key Features</h3>
+
+            <ul>
+                <li>Submit IT support tickets.</li>
+                <li>Search and filter tickets.</li>
+                <li>Update ticket status.</li>
+                <li>Assign tickets to technicians.</li>
+                <li>View complete ticket details.</li>
+                <li>Monitor ticket statistics.</li>
+            </ul>
+
+            <h3>Project Purpose</h3>
+
+            <p>
+                The purpose of this project is to demonstrate
+                how a simple web application can improve the
+                organization of IT support activities.
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>

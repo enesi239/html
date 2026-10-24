@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCare | Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #17365d;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 12px;
+            background: #17365d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #24527a;
+        }
+
+        .message {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>TechCare</h1>
+        <p class="subtitle">IT Support Management System</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+</body>
+</html>

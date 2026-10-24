@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket Details</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <main class="ticket-details">
+
+        <h1>Ticket Details</h1>
+
+        <div class="details-card">
+
+            <p>
+                <strong>Ticket ID:</strong>
+                HD{{ "%03d"|format(ticket["id"]) }}
+            </p>
+
+            <p>
+                <strong>Staff Name:</strong>
+                {{ ticket["staff_name"] }}
+            </p>
+
+            <p>
+                <strong>Department:</strong>
+                {{ ticket["department"] }}
+            </p>
+
+            <p>
+                <strong>Issue Title:</strong>
+                {{ ticket["title"] }}
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                {{ ticket["category"] }}
+            </p>
+
+            <p>
+                <strong>Priority:</strong>
+                {{ ticket["priority"] }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ ticket["status"] }}
+            </p>
+            <p>
+                <strong>Assigned Technician:</strong>
+                {{ ticket["technician"] or 'Unassigned' }}
+            </p>
+
+            <div class="description">
+                <strong>Problem Description:</strong>
+                <p>{{ ticket["description"] }}</p>
+            </div>
+
+        </div>
+    <form method="POST" action="{{ url_for('update_technician', ticket_id=ticket['id']) }}">
+    <label for="technician">Change Technician:</label>
+
+    <select name="technician" id="technician">
+        <option value="IT Support">IT Support</option>
+        <option value="Network Technician">Network Technician</option>
+        <option value="Hardware Technician">Hardware Technician</option>
+    </select>
+
+    <button type="submit">Update Technician</button>
+    </form>
+
+        <a href="{{ url_for('home') }}" class="back-button">
+            ← Back to Dashboard
+        </a>
+    <form method="POST" action="{{ url_for('delete_ticket', ticket_id=ticket['id']) }}" onsubmit="return confirm('Are you sure you want to delete this ticket?');">
+    <button type="submit" style="background-color: red; color: white;">
+        Delete Ticket
+    </button>
+</form>
+
+    </main>
+</body>
+</html>
